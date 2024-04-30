@@ -1,6 +1,7 @@
 const express = require("express");
 const cloudinary = require("cloudinary").v2;
 const bodyParser = require("body-parser");
+const cors = require('cors');
 
 const app = express();
 const PORT = 7680;
@@ -9,7 +10,7 @@ const PORT = 7680;
 app.use(bodyParser.json({ limit: '10mb' }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json({ limit: '10mb' }));
-
+app.use(cors({ origin: '*' }));
 // Configure Cloudinary with your credentials
 cloudinary.config({
   cloud_name: "dtj0krpma",
